@@ -7,6 +7,10 @@ def add(a: float, b: float) -> float:
     return a + b
 
 
+def multiply(a: float, b: float) -> float:
+    return a * b
+
+
 @app.get("/health")
 def health():
     return jsonify(status="ok")
@@ -48,6 +52,13 @@ def add_route():
     a = float(request.args.get("a", 0))
     b = float(request.args.get("b", 0))
     return jsonify(result=add(a, b))
+
+
+@app.get("/multiply")
+def multiply_route():
+    a = float(request.args.get("a", 0))
+    b = float(request.args.get("b", 0))
+    return jsonify(result=multiply(a, b))
 
 
 if __name__ == "__main__":
